@@ -2,9 +2,9 @@ const Message = (props) => {
   const { autor, content } = props.message;
 
   return (
-    <div>
+    <li>
       {autor}: {content}
-    </div>
+    </li>
   );
 };
 
