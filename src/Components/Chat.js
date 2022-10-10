@@ -1,29 +1,11 @@
 import { useState } from "react";
 import Message from "./Message";
+import { getActivity, getAllActivities, getInitialMessages } from "../activityUtils";
 
-const defaultActivities = [
-  "activity 1",
-  "activity 2",
-  "activity 3",
-  "activity 4",
-];
-let activities = [...defaultActivities];
-const getActivity = () => {
-  let randomNum = Math.floor(Math.random() * activities.length);
-  const activity = activities.splice(randomNum, 1)[0];
-  return activity;
-};
-
-const getInitialMessages = () => {
-  return [
-    { autor: "human", content: "Give me something to do" },
-    { autor: "bot", content: getActivity() },
-  ];
-};
-const initialMessages = getInitialMessages();
+let activities = getAllActivities();
 
 const Chat = () => {
-  const [messages, setMessages] = useState(initialMessages);
+  const [messages, setMessages] = useState(() => getInitialMessages(activities));
   const [isDone, setIsDone] = useState(false);
   const [isBotTyping, setIsBotTyping] = useState(false);
 
@@ -37,7 +19,7 @@ const Chat = () => {
     addNewMessage("human", "No");
     setIsBotTyping(true);
     setTimeout(()=>{
-      addNewMessage("bot", getActivity());
+      addNewMessage("bot", getActivity(activities));
       setIsBotTyping(false);
     },500)
   };
@@ -49,10 +31,9 @@ const Chat = () => {
   };
 
   const restart = () => {
-    activities = [...defaultActivities];
+    activities = getAllActivities();
     setIsDone(false);
-    const initialMessages = getInitialMessages();
-    setMessages(initialMessages);
+    setMessages(() => getInitialMessages(activities));
   };
 
   return (
