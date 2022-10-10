@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Message from "./Message";
 import { getActivity, getAllActivities, getInitialMessages } from "../activityUtils";
+import "./Chat.css"
 
 let activities = getAllActivities();
 
@@ -9,9 +10,9 @@ const Chat = () => {
   const [isDone, setIsDone] = useState(false);
   const [isBotTyping, setIsBotTyping] = useState(false);
 
-  const addNewMessage = (autor, content) => {
+  const addNewMessage = (autor, text) => {
     setMessages((prevMessages) => {
-      return [...prevMessages, { autor: autor, content: content }];
+      return [...prevMessages, { autor: autor, text: text }];
     });
   };
 
@@ -37,9 +38,9 @@ const Chat = () => {
   };
 
   return (
-    <div>
+    <div className="chat">
       <h2>Chat</h2>
-      <ul>
+      <ul className="messagesList">
         {messages.map((message, index) => {
           return <Message key={index} message={message} />;
         })}

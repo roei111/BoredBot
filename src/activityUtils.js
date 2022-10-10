@@ -17,7 +17,7 @@ export const getActivity = (activities) => {
 
 export const getInitialMessages = (activities) => {
   return [
-    { autor: "human", content: "Give me something to do" },
-    { autor: "bot", content: getActivity(activities) },
+    { autor: "human", text: "Give me something to do" },
+    { autor: "bot", text: getActivity(activities) },
   ];
 };
