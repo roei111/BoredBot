@@ -1,8 +1,9 @@
 const defaultActivities = [
-  "activity 1",
-  "activity 2",
-  "activity 3",
-  "activity 4",
+  "תכין לאכול משהו שמעולם לא הכנת",
+  "תפתח בלוג בנושא שאתה נלהב ממנו",
+  "תשיר שיר",
+  "תצא לרכיבה על אופניים",
+  "תשנה את הסיסמה שלך"
 ];
 
 export const getAllActivities = () => {
@@ -17,7 +18,7 @@ export const getActivity = (activities) => {
 
 export const getInitialMessages = (activities) => {
   return [
-    { autor: "human", content: "Give me something to do" },
-    { autor: "bot", content: getActivity(activities) },
+    { autor: "human", text: "משעמם לי תן לי משהו מעניין לעשות" },
+    { autor: "bot", text: getActivity(activities) },
   ];
 };
