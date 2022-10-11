@@ -1,0 +1,28 @@
+:root {
+  --primary: #2991ff;
+  --secondary: #fff;
+}
+
+.chat-buttons {
+  position: sticky;
+  bottom: 0;
+  padding: 0.5rem 0 1rem;
+  background-color: var(--secondary);
+}
+
+.chat-buttons > button {
+  color: var(--primary);
+  background-color: var(--secondary);
+  border-radius: 1.5rem;
+  border: 2px solid var(--primary);
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  margin-inline: 0.5rem;
+  transition: .2s;
+}
+
+.chat-buttons > button:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}

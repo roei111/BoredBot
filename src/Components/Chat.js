@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Message from "./Message";
+import ChatButtons from "./ChatButtons";
 import { getActivity, getAllActivities, getInitialMessages } from "../activityUtils";
 import "./Chat.css"
 
@@ -45,17 +46,7 @@ const Chat = () => {
         })}
       </ul>
       {isBotTyping ? <h4>מקליד...</h4> : null}
-      {isDone ? (
-        <div>
-          <button>מעולה!!</button>
-          <button onClick={restart}>הפעלה מחדש</button>
-        </div>
-      ) : (
-        <div>
-          <button onClick={yesClickHandler}>כן</button>
-          <button onClick={noClickHandler}>לא</button>
-        </div>
-      )}
+      <ChatButtons isDone={isDone} restart={restart} yes={yesClickHandler} no={noClickHandler}/>
     </div>
   );
 };
