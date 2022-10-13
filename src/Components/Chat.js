@@ -8,6 +8,7 @@ import {
 } from "../utils/activity";
 import { getFullDate } from "../utils/date";
 import "./Chat.css";
+import TypingLoader from "./TypingLoader";
 
 let activities = getAllActivities();
 
@@ -32,7 +33,7 @@ const Chat = () => {
   };
 
   const noClickHandler = () => {
-    addNewMessage("human", "לא");
+    addNewMessage("human", "לא 👎");
     setIsBotTyping(true);
     setTimeout(() => {
       addNewMessage("bot", getActivity(activities));
@@ -41,7 +42,7 @@ const Chat = () => {
   };
 
   const yesClickHandler = () => {
-    addNewMessage("human", "כן");
+    addNewMessage("human", "כן 👍");
     addNewMessage("bot", "לך תעשה את זה!!");
     setIsDone(true);
   };
@@ -52,6 +53,8 @@ const Chat = () => {
     setMessages(() => getInitialMessages(activities));
   };
 
+  const botTypingMessage = { autor: "bot", text: <TypingLoader/>, date: new Date() };
+
   return (
     <div className="chat" ref={chatRef}>
       <div className="date">{getFullDate()}</div>
@@ -59,8 +62,8 @@ const Chat = () => {
         {messages.map((message, index) => {
           return <Message key={index} message={message} />;
         })}
+        {isBotTyping ? <Message message={botTypingMessage} /> : null}
       </ul>
-      {isBotTyping ? <h4>מקליד...</h4> : null}
       <ChatButtons
         isDone={isDone}
         restart={restart}
