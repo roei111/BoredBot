@@ -2,7 +2,6 @@ import { getTime } from "../utils/date";
 import chatBotAvatar from "../images/chatBotAvatar.png";
 import "./Message.css";
 
-
 const Message = (props) => {
   const { autor, text, date } = props.message;
   const time = getTime(date);
