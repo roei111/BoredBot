@@ -3,7 +3,7 @@ const defaultActivities = [
   "תפתח בלוג בנושא שאתה נלהב ממנו",
   "תשיר שיר",
   "תצא לרכיבה על אופניים",
-  "תשנה את הסיסמה שלך"
+  "תשנה את הסיסמה שלך",
 ];
 
 export const getAllActivities = () => {
@@ -18,7 +18,11 @@ export const getActivity = (activities) => {
 
 export const getInitialMessages = (activities) => {
   return [
-    { autor: "human", text: "משעמם לי תן לי משהו מעניין לעשות" },
-    { autor: "bot", text: getActivity(activities) },
+    {
+      autor: "human",
+      text: "משעמם לי תן לי משהו מעניין לעשות",
+      date: new Date(),
+    },
+    { autor: "bot", text: getActivity(activities), date: new Date() },
   ];
 };

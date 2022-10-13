@@ -1,9 +1,11 @@
+import { getTime } from "../utils/date";
 import chatBotAvatar from "../images/chatBotAvatar.png";
 import "./Message.css";
 
-const Message = (props) => {
-  const { autor, text } = props.message;
 
+const Message = (props) => {
+  const { autor, text, date } = props.message;
+  const time = getTime(date);
   return (
     <li className={`message ${autor}-message`}>
       {autor === "bot" ? (
@@ -11,7 +13,7 @@ const Message = (props) => {
       ) : null}
       <div>
         <div className={`text-message ${autor}-text-message`}>{text}</div>
-        <div className={`time ${autor}-time`}>20:11</div>
+        <div className={`time ${autor}-time`}>{time}</div>
       </div>
     </li>
   );

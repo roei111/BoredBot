@@ -5,7 +5,8 @@ import {
   getActivity,
   getAllActivities,
   getInitialMessages,
-} from "../activityUtils";
+} from "../utils/activity";
+import { getFullDate } from "../utils/date";
 import "./Chat.css";
 
 let activities = getAllActivities();
@@ -20,7 +21,7 @@ const Chat = () => {
 
   const addNewMessage = (autor, text) => {
     setMessages((prevMessages) => {
-      return [...prevMessages, { autor: autor, text: text }];
+      return [...prevMessages, { autor: autor, text: text, date: new Date() }];
     });
     setTimeout(() => {
       chatRef.current.scroll({
@@ -53,6 +54,7 @@ const Chat = () => {
 
   return (
     <div className="chat" ref={chatRef}>
+      <div className="date">{getFullDate()}</div>
       <ul className="messages-list">
         {messages.map((message, index) => {
           return <Message key={index} message={message} />;
