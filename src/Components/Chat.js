@@ -43,6 +43,7 @@ const Chat = () => {
   };
 
   const yesClickHandler = () => {
+    if(isBotTyping) return;
     addNewMessage("human", "כן 👍");
     addNewMessage("bot", "לך תעשה את זה!!");
     setIsDone(true);
