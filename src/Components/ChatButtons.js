@@ -10,7 +10,7 @@ const ChatButtons = (props) => {
   ) : (
     <div className="chat-buttons">
       <button onClick={() => yes()}>כן 👍</button>
-      <button onClick={() => no()}>לא 👎</button>
+      <button onClick={() => no()}> לא, תציע לי משהו אחר 👎</button>
     </div>
   );
 };

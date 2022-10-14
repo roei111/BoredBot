@@ -1,10 +1,8 @@
-import './App.css';
 import Chat from './Components/Chat';
 
 function App() {
   return (
     <div className="App">
-      <h1>Bored Bot</h1>
       <Chat />
     </div>
   );
