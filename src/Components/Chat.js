@@ -33,6 +33,7 @@ const Chat = () => {
   };
 
   const noClickHandler = () => {
+    if(isBotTyping) return;
     addNewMessage("human", "לא 👎");
     setIsBotTyping(true);
     setTimeout(() => {
