@@ -20,9 +20,12 @@ const Chat = () => {
   const [isBotTyping, setIsBotTyping] = useState(false);
   const chatRef = useRef(null);
 
-  const addNewMessage = (autor, text) => {
+  const addNewMessage = (autor, text, link = "") => {
     setMessages((prevMessages) => {
-      return [...prevMessages, { autor: autor, text: text, date: new Date() }];
+      return [
+        ...prevMessages,
+        { autor: autor, text: text, link: link, date: new Date() },
+      ];
     });
     setTimeout(() => {
       chatRef.current.scroll({
@@ -32,20 +35,37 @@ const Chat = () => {
     }, 0);
   };
 
+  const lastBotMessage = (link) => {
+    if (!link) return "לך תעשה את זה!!";
+    return (
+      <div>
+        לך תעשה את זה!!
+        <br />
+        הלינק הזה יעזור לך:
+        <br />
+        <a href={link} style={{color: "#fff"}} target="_blank" rel="noopener noreferrer">
+          {link}
+        </a>
+      </div>
+    );
+  };
+
   const noClickHandler = () => {
-    if(isBotTyping) return;
+    if (isBotTyping) return;
     addNewMessage("human", "לא 👎");
     setIsBotTyping(true);
     setTimeout(() => {
-      addNewMessage("bot", getActivity(activities));
+      const { text, link } = getActivity(activities);
+      addNewMessage("bot", text, link);
       setIsBotTyping(false);
     }, 500);
   };
 
   const yesClickHandler = () => {
-    if(isBotTyping) return;
+    if (isBotTyping) return;
+    const lastActivityLink = messages[messages.length - 1].link;
     addNewMessage("human", "כן 👍");
-    addNewMessage("bot", "לך תעשה את זה!!");
+    addNewMessage("bot", lastBotMessage(lastActivityLink));
     setIsDone(true);
   };
 
@@ -55,7 +75,11 @@ const Chat = () => {
     setMessages(() => getInitialMessages(activities));
   };
 
-  const botTypingMessage = { autor: "bot", text: <TypingLoader/>, date: new Date() };
+  const botTypingMessage = {
+    autor: "bot",
+    text: <TypingLoader />,
+    date: new Date(),
+  };
 
   return (
     <div className="chat" ref={chatRef}>
