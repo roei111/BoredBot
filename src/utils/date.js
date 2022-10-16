@@ -4,7 +4,7 @@ export const getFullDate =()=>{
 }
 
 export const getTime = (date)=>{
-  return date.toLocaleTimeString('default', {
+  return date.toLocaleTimeString('he-IL', {
     hour: '2-digit',
     minute: '2-digit',
   });
