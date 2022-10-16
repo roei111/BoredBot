@@ -1,14 +1,4 @@
-const defaultActivities = [
-  { text: "תכין לאכול משהו שמעולם לא הכנת", link: "" },
-  { text: "תשנה את הסיסמה שלך", link: "" },
-  { text: "תצא לרכיבה על אופניים", link: "" },
-  { text: "תשיר שיר", link: "" },
-  { text: "תפתח בלוג בנושא שאתה נלהב ממנו", link: "" },
-  {
-    text: "תלמד להכין ברבור מאוריגמי",
-    link: "https://www.instructables.com/How-to-make-a-Paper-Crane-1/?amp_page=true",
-  },
-];
+import defaultActivities from "../data/activities";
 
 export const getAllActivities = () => {
   return [...defaultActivities];
