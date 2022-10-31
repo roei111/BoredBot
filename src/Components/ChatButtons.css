@@ -4,12 +4,12 @@
 }
 
 .chat-buttons {
-  /* position: -webkit-sticky;
+  position: -webkit-sticky;
   position: -moz-sticky;
   position: -o-sticky;
   position: -ms-sticky;
-  position: sticky; */
-  bottom: 0;
+  position: sticky;
+  bottom: 5px;
   padding: 0.5rem 0;
   background-color: var(--secondary);
   width: 100%;
