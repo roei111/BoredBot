@@ -17,7 +17,7 @@
   overflow-x: auto;
 }
 
-.chat-buttons::-webkit-scrollbar{
+.chat-buttons::-webkit-scrollbar {
   width: 0;
 }
 
@@ -44,5 +44,9 @@
 @media only screen and (max-width: 500px) {
   .chat-buttons > button {
     font-size: 14px;
+  }
+
+  .chat-buttons {
+    padding: 0.5rem 0 1.5rem;
   }
 }
