@@ -11,15 +11,14 @@
   text-align: center;
 }
 
+.chat::-webkit-scrollbar{
+  width: 0;
+}
+
 @media only screen and (max-width: 600px) {
   .chat {
     min-width: auto;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .chat {
-    width: 85%;
+    width: 80vw;
   }
 }
 

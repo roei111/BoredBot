@@ -17,6 +17,10 @@
   overflow-x: auto;
 }
 
+.chat-buttons::-webkit-scrollbar{
+  width: 0;
+}
+
 .chat-buttons > button {
   color: var(--primary);
   background-color: var(--secondary);
