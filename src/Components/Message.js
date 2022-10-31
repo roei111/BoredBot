@@ -1,13 +1,18 @@
+import { memo } from "react";
 import { getTime } from "../utils/date";
 import "./Message.css";
 
-const Message = (props) => {
+function Message(props) {
   const { autor, text, date } = props.message;
   const time = getTime(date);
   return (
     <li className={`message ${autor}-message`}>
       {autor === "bot" ? (
-        <img className="bot-avatar" src="https://res.cloudinary.com/dq6iduc79/image/upload/v1665729398/Bored%20Bot/chatBotAvatar_n22khj.png" alt="bot avatar" />
+        <img
+          className="bot-avatar"
+          src="https://res.cloudinary.com/dq6iduc79/image/upload/v1665729398/Bored%20Bot/chatBotAvatar_n22khj.png"
+          alt="bot avatar"
+        />
       ) : null}
       <div>
         <div className={`text-message ${autor}-text-message`}>{text}</div>
@@ -15,6 +20,8 @@ const Message = (props) => {
       </div>
     </li>
   );
-};
+}
 
-export default Message;
+const MemoiseMessage = memo(Message);
+
+export default MemoiseMessage;
