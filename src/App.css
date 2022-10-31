@@ -1,0 +1,30 @@
+.main{
+  margin-top: 40px;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #ffffff; 
+  box-shadow: 0 32px 44px 10px rgba(64, 68, 90, 0.2);
+  border-radius: 30px;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contentWrapper {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
