@@ -28,7 +28,6 @@ const Chat = () => {
       ];
     });
     setTimeout(() => {
-      console.log(messagesRef.current.scrollHeight, "text:", text);
       messagesRef.current.scroll({
         top: messagesRef.current.scrollHeight,
         behavior: "smooth",
