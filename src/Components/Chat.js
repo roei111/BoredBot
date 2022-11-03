@@ -61,8 +61,10 @@ const Chat = () => {
     setIsBotTyping(true);
     setTimeout(() => {
       setIsBotTyping(false);
-      const { text, link } = getActivity(activities);
-      addNewMessage("bot", text, link);
+      setTimeout(() => {
+        const { text, link } = getActivity(activities);
+        addNewMessage("bot", text, link);
+      }, 0);
     }, 500);
   };
 
