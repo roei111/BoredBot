@@ -4,10 +4,14 @@
 }
 
 .chat-buttons {
-  position: sticky;
-  bottom: 0;
-  padding: 0.5rem 0 1rem;
   background-color: var(--secondary);
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+}
+
+.chat-buttons::-webkit-scrollbar {
+  width: 0;
 }
 
 .chat-buttons > button {
@@ -18,9 +22,11 @@
   padding: 0.5rem 1rem;
   font-size: 16px;
   cursor: pointer;
-  margin-inline: 0.5rem;
-  transition: .2s;
+  margin-inline: 0.3rem;
+  transition: 0.2s;
   font-weight: bold;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .chat-buttons > button:hover {

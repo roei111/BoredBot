@@ -18,7 +18,7 @@ const Chat = () => {
   );
   const [isDone, setIsDone] = useState(false);
   const [isBotTyping, setIsBotTyping] = useState(false);
-  const chatRef = useRef(null);
+  const messagesRef = useRef(null);
 
   const addNewMessage = (autor, text, link = "") => {
     setMessages((prevMessages) => {
@@ -28,8 +28,8 @@ const Chat = () => {
       ];
     });
     setTimeout(() => {
-      chatRef.current.scroll({
-        top: chatRef.current.scrollHeight,
+      messagesRef.current.scroll({
+        top: messagesRef.current.scrollHeight,
         behavior: "smooth",
       });
     }, 0);
@@ -82,9 +82,9 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat" ref={chatRef}>
+    <div className="chat">
       <div className="date">{getFullDate()}</div>
-      <ul className="messages-list">
+      <ul className="messages-list" ref={messagesRef}>
         {messages.map((message, index) => {
           return <Message key={index} message={message} />;
         })}

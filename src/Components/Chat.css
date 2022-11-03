@@ -1,8 +1,6 @@
 .chat {
   min-width: 320px;
-  max-width: 375px;
   height: 600px;
-  overflow: auto;
   padding: 20px 20px 0px;
   background: rgb(255, 255, 255);
   border-radius: 50px;
@@ -12,10 +10,22 @@
   text-align: center;
 }
 
+.messages-list::-webkit-scrollbar{
+  width: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .chat {
+    min-width: auto;
+    width: 80vw;
+  }
+}
+
 .messages-list {
+  overflow-y: scroll;
   list-style-type: none;
   padding: 0;
-  min-height: 485px;
+  height: 485px;
 }
 
 .date {
