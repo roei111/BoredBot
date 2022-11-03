@@ -4,14 +4,15 @@
 }
 
 .chat-buttons {
-  background-color: var(--secondary);
   width: 100%;
   display: flex;
   overflow-x: auto;
+  margin-bottom: 10px;
 }
 
 .chat-buttons::-webkit-scrollbar {
   width: 0;
+  height: 0;
 }
 
 .chat-buttons > button {
