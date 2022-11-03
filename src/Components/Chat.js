@@ -43,7 +43,12 @@ const Chat = () => {
         <br />
         הלינק הזה יעזור לך:
         <br />
-        <a href={link} style={{color: "#fff"}} target="_blank" rel="noopener noreferrer">
+        <a
+          href={link}
+          style={{ color: "#fff" }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {link}
         </a>
       </div>
@@ -55,9 +60,9 @@ const Chat = () => {
     addNewMessage("human", "לא 👎");
     setIsBotTyping(true);
     setTimeout(() => {
+      setIsBotTyping(false);
       const { text, link } = getActivity(activities);
       addNewMessage("bot", text, link);
-      setIsBotTyping(false);
     }, 500);
   };
 
