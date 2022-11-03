@@ -4,7 +4,7 @@
 }
 
 .chat-buttons {
-  padding: 0.5rem 0;
+  /* padding: 0.5rem 0; */
   background-color: var(--secondary);
   width: 100%;
   display: flex;
