@@ -30,10 +30,10 @@ const Chat = () => {
     setTimeout(() => {
       console.log(messagesRef.current.scrollHeight,"text:",text);
       messagesRef.current.scroll({
-        top: (messagesRef.current.scrollHeight+50),
+        top: messagesRef.current.scrollHeight,
         behavior: "smooth",
       });
-    }, 0);
+    }, 10);
   };
 
   const lastBotMessage = (link) => {
@@ -65,7 +65,7 @@ const Chat = () => {
       setIsBotTyping(false);
       setTimeout(() => {
         addNewMessage("bot", text, link);
-      }, 200);
+      }, 0);
     }, 500);
   };
 
