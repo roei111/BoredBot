@@ -4,12 +4,6 @@
 }
 
 .chat-buttons {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -o-sticky;
-  position: -ms-sticky;
-  position: sticky;
-  bottom: 5px;
   padding: 0.5rem 0;
   background-color: var(--secondary);
   width: 100%;
@@ -41,8 +35,8 @@
   color: var(--secondary);
 }
 
-@media only screen and (max-width: 500px) {
+/* @media only screen and (max-width: 500px) {
   .chat-buttons > button {
     font-size: 14px;
   }
-}
+} */
