@@ -28,10 +28,12 @@ const Chat = () => {
       ];
     });
     setTimeout(() => {
-      messagesRef.current.scroll({
-        top: messagesRef.current.scrollHeight,
-        behavior: "smooth",
-      });
+      if (messagesRef.current) {
+        messagesRef.current.scroll({
+          top: messagesRef.current.scrollHeight,
+          behavior: "smooth",
+        });
+      }
     }, 0);
   };
 
