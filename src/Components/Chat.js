@@ -17,7 +17,7 @@ const Chat = () => {
     getInitialMessages(activities)
   );
   const [isDone, setIsDone] = useState(false);
-  const [isBotTyping, setIsBotTyping] = useState(false);
+  // const [isBotTyping, setIsBotTyping] = useState(false);
   const messagesRef = useRef(null);
 
   const addNewMessage = (autor, text, link = "") => {
@@ -71,7 +71,7 @@ const Chat = () => {
   };
 
   const yesClickHandler = () => {
-    if (isBotTyping) return;
+    // if (isBotTyping) return;
     const lastActivityLink = messages[messages.length - 1].link;
     addNewMessage("human", "כן 👍");
     addNewMessage("bot", lastBotMessage(lastActivityLink));
