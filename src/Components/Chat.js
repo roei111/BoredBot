@@ -65,7 +65,7 @@ const Chat = () => {
       setIsBotTyping(false);
       setTimeout(() => {
         addNewMessage("bot", text, link);
-      }, 0);
+      }, 200);
     }, 500);
   };
 
