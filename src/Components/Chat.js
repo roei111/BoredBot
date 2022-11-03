@@ -8,7 +8,7 @@ import {
 } from "../utils/activity";
 import { getFullDate } from "../utils/date";
 import "./Chat.css";
-import TypingLoader from "./TypingLoader";
+// import TypingLoader from "./TypingLoader";
 
 let activities = getAllActivities();
 
@@ -58,16 +58,16 @@ const Chat = () => {
   };
 
   const noClickHandler = () => {
-    if (isBotTyping) return;
+    // if (isBotTyping) return;
     addNewMessage("human", "לא 👎");
-    setIsBotTyping(true);
-    setTimeout(() => {
-      setIsBotTyping(false);
-      setTimeout(() => {
+    // setIsBotTyping(true);
+    // setTimeout(() => {
+    //   setIsBotTyping(false);
+    //   setTimeout(() => {
         const { text, link } = getActivity(activities);
         addNewMessage("bot", text, link);
-      }, 0);
-    }, 500);
+    //   }, 0);
+    // }, 500);
   };
 
   const yesClickHandler = () => {
@@ -84,11 +84,11 @@ const Chat = () => {
     setMessages(() => getInitialMessages(activities));
   };
 
-  const botTypingMessage = {
-    autor: "bot",
-    text: <TypingLoader />,
-    date: new Date(),
-  };
+  // const botTypingMessage = {
+  //   autor: "bot",
+  //   text: <TypingLoader />,
+  //   date: new Date(),
+  // };
 
   return (
     <div className="chat">
@@ -97,7 +97,7 @@ const Chat = () => {
         {messages.map((message, index) => {
           return <Message key={index} message={message} />;
         })}
-        {isBotTyping ? <Message message={botTypingMessage} /> : null}
+        {/* {isBotTyping ? <Message message={botTypingMessage} /> : null} */}
       </ul>
       <ChatButtons
         isDone={isDone}
