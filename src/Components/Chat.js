@@ -33,7 +33,7 @@ const Chat = () => {
         top: messagesRef.current.scrollHeight,
         behavior: "smooth",
       });
-    }, 1);
+    }, 10);
   };
 
   const lastBotMessage = (link) => {
