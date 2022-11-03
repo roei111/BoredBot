@@ -32,7 +32,7 @@ const Chat = () => {
         top: messagesRef.current.scrollHeight,
         behavior: "smooth",
       });
-    }, 0);
+    }, 10);
   };
 
   const lastBotMessage = (link) => {
@@ -43,7 +43,12 @@ const Chat = () => {
         <br />
         הלינק הזה יעזור לך:
         <br />
-        <a href={link} style={{color: "#fff"}} target="_blank" rel="noopener noreferrer">
+        <a
+          href={link}
+          style={{ color: "#fff" }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {link}
         </a>
       </div>
@@ -54,10 +59,10 @@ const Chat = () => {
     if (isBotTyping) return;
     addNewMessage("human", "לא 👎");
     setIsBotTyping(true);
+    const { text, link } = getActivity(activities);
     setTimeout(() => {
-      const { text, link } = getActivity(activities);
-      addNewMessage("bot", text, link);
       setIsBotTyping(false);
+      addNewMessage("bot", text, link);
     }, 500);
   };
 
