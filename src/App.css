@@ -17,14 +17,21 @@
 
 @media only screen and (max-width: 900px) {
   .contentWrapper {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    text-align: center;
     padding: 20px;
+  }
+  .main{
+    margin-top: 25px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .contentWrapper {
-    flex-direction: column;
     padding: 10px;
+  }
+
+  .main{
+    margin-top: 15px;
   }
 }

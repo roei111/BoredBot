@@ -1,9 +1,18 @@
 .welcome-wrapper {
-  margin-top: 60px;
+  margin-top: 3.5rem;
   line-height: 1.5;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 900px) {
+  .bottom-text {
+    margin-top: 1rem;
+  }
+  .welcome-wrapper{
+    margin-top: 1rem;
+  }
 }
 
 h1 {
@@ -19,4 +28,12 @@ h2 {
 p {
   margin: 0;
   color: #889097;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: #000;
 }
