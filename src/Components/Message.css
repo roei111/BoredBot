@@ -17,7 +17,7 @@
 
 .text-message {
   padding: 1rem;
-  max-width: 155px;
+  max-width: 185px;
   min-width: 50px;
   text-align: start;
   display: flex;
