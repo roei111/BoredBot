@@ -13,7 +13,7 @@ const ChatButtons = (props) => {
       <button
         onClick={(e) => {
           yes();
-          startConfetti(e.target);
+          startConfetti(e.target, true);
         }}
       >
         כן 👍
