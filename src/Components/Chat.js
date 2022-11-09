@@ -36,10 +36,10 @@ const Chat = () => {
   };
 
   const lastBotMessage = (link) => {
-    if (!link) return "לך תעשה את זה!!";
+    if (!link) return "לך תעשה את זה!! 🎉";
     return (
       <div>
-        לך תעשה את זה!!
+        לך תעשה את זה!! 🎉
         <br />
         הלינק הזה יעזור לך:
         <br />
@@ -57,7 +57,7 @@ const Chat = () => {
 
   const noClickHandler = () => {
     if (isBotTyping) return;
-    addNewMessage("human", "לא 👎");
+    addNewMessage("human", " לא, תציע לי משהו אחר 👎");
     setIsBotTyping(true);
     const { text, link } = getActivity(activities);
     setTimeout(() => {
