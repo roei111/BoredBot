@@ -30,7 +30,19 @@
   text-align: center;
 }
 
+.chat-buttons > button:focus-visible {
+  outline: none;
+  border-width: 3px;
+}
+
 .chat-buttons > button:hover {
   background-color: var(--primary);
   color: var(--secondary);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .chat-buttons > button:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
 }
