@@ -1,5 +1,5 @@
 .chat {
-  min-width: 350px;
+  width: 350px;
   height: 600px;
   padding: 20px 10px 0px;
   background: rgb(255, 255, 255);
@@ -10,7 +10,7 @@
 }
 
 .messages-list::-webkit-scrollbar {
-  width: 4px; 
+  width: 4px;
 }
 .messages-list::-webkit-scrollbar-track {
   border-radius: 10px;
@@ -27,10 +27,24 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+@media only screen and (max-width: 900px) {
+  .chat {
+    width: 350px;
+    margin: 0 auto;
+  }
+  .background-blob {
+    left: 50%;
+    width: auto;
+    max-height: 600px;
+    transform: translateX(-50%);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .chat {
     min-width: auto;
     width: 85vw;
+    max-width: 350px;
   }
 }
 
@@ -45,3 +59,34 @@
 .date {
   color: #8b8b8b;
 }
+
+.chat-wrapper {
+  position: relative;
+}
+
+.background-blob {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 170%;
+  z-index: 0;
+  transform: translateX(-20%);
+}
+/* @media (min-width: 600px) and (max-width: 900px) {
+  .background-blob {
+    top: -50px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    max-height: 700px;
+  }
+}
+@media (min-width: 420px) and (max-width: 600px) {
+  .background-blob {
+    top: -50px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    max-height: 700px;
+  }
+} */
