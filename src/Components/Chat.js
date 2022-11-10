@@ -9,6 +9,7 @@ import {
 import { getFullDate } from "../utils/date";
 import "./Chat.css";
 import TypingLoader from "./TypingLoader";
+import backgroundBlob from "../img/background-blob.svg";
 
 let activities = getAllActivities();
 
@@ -87,20 +88,23 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
-      <div className="date">{getFullDate()}</div>
-      <ul className="messages-list" ref={messagesRef}>
-        {messages.map((message, index) => {
-          return <Message key={index} message={message} />;
-        })}
-        {isBotTyping ? <Message message={botTypingMessage} /> : null}
-      </ul>
-      <ChatButtons
-        isDone={isDone}
-        restart={restart}
-        yes={yesClickHandler}
-        no={noClickHandler}
-      />
+    <div className="chat-wrapper">
+      <img className="background-blob" src={backgroundBlob} alt="background blob" />
+      <div className="chat">
+        <div className="date">{getFullDate()}</div>
+        <ul className="messages-list" ref={messagesRef}>
+          {messages.map((message, index) => {
+            return <Message key={index} message={message} />;
+          })}
+          {isBotTyping ? <Message message={botTypingMessage} /> : null}
+        </ul>
+        <ChatButtons
+          isDone={isDone}
+          restart={restart}
+          yes={yesClickHandler}
+          no={noClickHandler}
+        />
+      </div>
     </div>
   );
 };
