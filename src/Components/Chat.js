@@ -9,7 +9,8 @@ import {
 import { getFullDate } from "../utils/date";
 import "./Chat.css";
 import TypingLoader from "./TypingLoader";
-import backgroundBlob from "../img/background-blob.svg";
+// import backgroundBlob from "../img/background-blob1.svg";
+import AnimatedBlob from "./AnimatedBlob";
 
 let activities = getAllActivities();
 
@@ -89,7 +90,8 @@ const Chat = () => {
 
   return (
     <div className="chat-wrapper">
-      <img className="background-blob" src={backgroundBlob} alt="background blob" />
+      <AnimatedBlob className="background-blob"/>
+      {/* <img className="background-blob" src={backgroundBlob} alt="background blob" /> */}
       <div className="chat">
         <div className="date">{getFullDate()}</div>
         <ul className="messages-list" ref={messagesRef}>
