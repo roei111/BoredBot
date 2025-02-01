@@ -1,18 +1,17 @@
-import defaultActivities from "../data/activities";
+import { fetchActivity } from "../services/apiService";
 
-export const getAllActivities = () => {
-  return [...defaultActivities];
-};
+export const getActivity = async () => {
+  try {
+    const activity = await fetchActivity();
+    return activity;
+  } catch (error) {
+    console.error('Failed to fetch activity:', error);
+    return { text: "לא הצלחתי למצוא משהו לעשות, נסה שוב", link: "" };
+  }
+}
 
-export const getActivity = (activities) => {
-  if(activities.length === 0) return {text: "", link: ""}; //There is no more activities
-  let randomNum = Math.floor(Math.random() * activities.length);
-  const activity = activities.splice(randomNum, 1)[0];
-  return activity;
-};
-
-export const getInitialMessages = (activities) => {
-  const { text, link } = getActivity(activities);
+export const getInitialMessages = async () => {
+  const { text, link } = await getActivity();
   return [
     {
       autor: "human",
