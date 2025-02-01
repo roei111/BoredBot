@@ -1,25 +1,30 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Message from "./Message";
 import ChatButtons from "./ChatButtons";
-import {
-  getActivity,
-  getAllActivities,
-  getInitialMessages,
-} from "../utils/activity";
+import { getInitialMessages, getActivity } from "../utils/activity";
 import { getFullDate } from "../utils/date";
 import "./Chat.css";
 import TypingLoader from "./TypingLoader";
 import backgroundBlob from "../img/background-blob.svg";
 
-let activities = getAllActivities();
-
 const Chat = () => {
-  const [messages, setMessages] = useState(() =>
-    getInitialMessages(activities)
-  );
+  const [messages, setMessages] = useState([]);
   const [isDone, setIsDone] = useState(false);
   const [isBotTyping, setIsBotTyping] = useState(false);
   const messagesRef = useRef(null);
+
+  const fetchActivities = async () => {
+    try {
+      const messages = await getInitialMessages();
+      setMessages(messages);
+    } catch (error) {
+      console.error("Failed to fetch activities:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchActivities();
+  }, []);
 
   const addNewMessage = (autor, text, link = "") => {
     setMessages((prevMessages) => {
@@ -56,15 +61,13 @@ const Chat = () => {
     );
   };
 
-  const noClickHandler = () => {
+  const noClickHandler = async () => {
     if (isBotTyping) return;
     addNewMessage("human", " לא, תציע לי משהו אחר 👎");
     setIsBotTyping(true);
-    const { text, link } = getActivity(activities);
-    setTimeout(() => {
-      setIsBotTyping(false);
-      addNewMessage("bot", text, link);
-    }, 500);
+    const { text, link } = await getActivity();
+    setIsBotTyping(false);
+    addNewMessage("bot", text, link);
   };
 
   const yesClickHandler = () => {
@@ -76,9 +79,8 @@ const Chat = () => {
   };
 
   const restart = () => {
-    activities = getAllActivities();
     setIsDone(false);
-    setMessages(() => getInitialMessages(activities));
+    fetchActivities();
   };
 
   const botTypingMessage = {
